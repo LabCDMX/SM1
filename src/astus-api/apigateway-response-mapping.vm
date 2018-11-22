@@ -1,0 +1,4 @@
+{
+    "failedCount": $input.path('$.FailedRecordCount'),
+    "successCount": $input.path('$.Records').size()
+}

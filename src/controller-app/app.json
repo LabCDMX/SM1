@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "Wawa Control",
+    "slug": "wawa-control",
+    "sdkVersion": "28.0.0",
+    "icon": "./assests/ic_launcher.png",
+    "androidStatusBar": {
+      "backgroundColor": "#f8fbfd"
+    },
+    "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "<YOUR_KEY_HERE>"
+        }
+      },
+      "package": "ai.datank.wawa.user"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "data": [
+    {
+      "VehicleID": 10,
+      "TripEventID": 100,
+      "Distance": 15.567,
+      "GPSDateTime": "2017-11-10 10:20:30",
+      "Heading": 188,
+      "Speed": 120,
+      "IsGPSValid": true,
+      "Latitude": 19.386144,
+      "Longitude": -99.226151,
+      "TimeSpan": 10,
+      "VehicleState": "Moving",
+      "DeviceType": "sometype",
+      "LastConnectionDate": "2017-11-10 10:19:30",
+      "Odometer": 34.54,
+      "MotorHour": 8.2,
+      "EmployeeID": 2000,
+      "VehicleAvailabilityStateID": 1,
+      "VehicleAvailabilityStateName": "somestate",
+      "VehicleCustomStateID": 2,
+      "VehicleCustomStateName": "somecustomstate",
+      "VehicleName": "vehicle no 10",
+      "ClosestLocation": "balderas"
+    },
+    {
+      "VehicleID": 11,
+      "TripEventID": 101,
+      "Distance": 19.567,
+      "GPSDateTime": "2017-11-10 10:20:31",
+      "Heading": 188,
+      "Speed": 120,
+      "IsGPSValid": true,
+      "Latitude": 19.386144,
+      "Longitude": -99.226151,
+      "TimeSpan": 10,
+      "VehicleState": "Idle",
+      "DeviceType": "sometype",
+      "LastConnectionDate": "2017-11-10 10:19:32",
+      "Odometer": 34.54,
+      "MotorHour": 8.2,
+      "EmployeeID": 3000,
+      "VehicleAvailabilityStateID": 1,
+      "VehicleAvailabilityStateName": "somestate",
+      "VehicleCustomStateID": 2,
+      "VehicleCustomStateName": "somecustomstate",
+      "VehicleName": "vehicle no 11",
+      "ClosestLocation": "santa fe"
+    }
+  ]
+}

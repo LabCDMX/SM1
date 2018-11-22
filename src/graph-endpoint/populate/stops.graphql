@@ -1,0 +1,17 @@
+mutation {
+  createStop(data: {
+    m1ID: "chapu 1"
+    route: { create: { m1ID: "chapu" }}
+    position: {create: {longitude: 1, latitude: 1}}
+    onComing: {
+      connect: [
+        {id: "7aa0e25a-c32a-4d34-86ce-5349e2f6bed8"},
+        {id: "db4a554d-1cf9-47f3-a2b4-b736633b430c"},
+        {id: "dd7f3f92-de88-468f-b7b7-ef46942a2238"},
+        {id: "e18a0c1f-89d7-4d68-99b1-d4bd1924361d"},
+      ]
+    }
+  }) {
+    id
+  }
+}

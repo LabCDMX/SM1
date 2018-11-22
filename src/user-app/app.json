@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "Wawa",
+    "slug": "wawa",
+    "sdkVersion": "28.0.0",
+    "icon": "./assests/ic_usuario.png",
+    "androidStatusBar": {
+      "backgroundColor": "#f8fbfd"
+    },
+    "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyC_sN1mL0i-yLV1_RWZSIarrowmqsVViwg"
+        }
+      },
+      "package": "ai.datank.wawa"
+    }
+  }
+}

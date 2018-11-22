@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "BusLastStateReq",
+  "type": "object",
+  "required": [ "data" ],
+  "properties": {
+    "data": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [ "VehicleID", "TripEventID", "Distance", "GPSDateTime",
+            "Heading", "Speed", "IsGPSValid", "Latitude", "Longitude", "VehicleState",
+            "LastConnectionDate", "Odometer", "MotorHour", "EmployeeID", "ClosestLocation"],
+        "properties": {
+          "VehicleID":  { "type": "integer" },
+          "TripEventID":  { "type": "integer" },
+          "Distance": { "type": "number" },
+          "GPSDateTime": { "type": "string" },
+          "Heading":  { "type": "integer" },
+          "Speed":  { "type": "integer" },
+          "IsGPSValid": { "type": "boolean" },
+          "Latitude": { "type": "number" },
+          "Longitude": { "type": "number" },
+          "TimeSpan":  { "type": "integer" },
+          "VehicleState": { "type": "string" },
+          "DeviceType": { "type": "string" },
+          "LastConnectionDate": { "type": "string" },
+          "Odometer": { "type": "number" },
+          "MotorHour": { "type": "number" },
+          "EmployeeID":  { "type": "integer" },
+          "VehicleAvailabilityStateID": { "type": "integer" },
+          "VehicleAvailabilityStateName": { "type": "string" },
+          "VehicleCustomStateID":  { "type": "integer" },
+          "VehicleCustomStateName": { "type": "string" },
+          "VehicleName": { "type": "string" },
+          "ClosestLocation": { "type": "string" }
+        }
+      }
+    }
+  }
+}

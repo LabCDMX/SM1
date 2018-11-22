@@ -1,0 +1,18 @@
+#set($newLine = "
+")
+#set($inputData = $input.path('$.data'))
+{
+    "StreamName": "$stageVariables.kinesisStream",
+    "Records": [
+    #foreach($record in $inputData)
+      #set($idx = $foreach.count - 1)
+      #set($recordData = $input.json("$.data[$idx]"))
+      #set($recordJson = "$recordData$newLine")
+      {
+          "Data": "$util.base64Encode($recordJson)",
+          "PartitionKey":"$.data[$idx].VehicleID"
+      }
+      #if($foreach.hasNext),#end
+    #end
+    ]
+}

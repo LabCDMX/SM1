@@ -1,0 +1,105 @@
+# import Bus from "./generated/prisma.graphql"
+# import BatchPayload from "./generated/prisma.graphql"
+# import LocationCreateInput from "./generated/prisma.graphql"
+# import Location from "./generated/prisma.graphql"
+# import StopWhereUniqueInput from "./generated/prisma.graphql"
+# import StopCreateInput from "./generated/prisma.graphql"
+# import StopUpdateInput from "./generated/prisma.graphql"
+# import Stop from "./generated/prisma.graphql"
+# import ArrivingToCreateInput from "./generated/prisma.graphql"
+# import ArrivingTo from "./generated/prisma.graphql"
+# import BusCreateInput from "./generated/prisma.graphql"
+# import ArrivingToWhereUniqueInput from "./generated/prisma.graphql"
+# import BusWhereInput from "./generated/prisma.graphql"
+# import BusOrderByInput from "./generated/prisma.graphql"
+# import BusWhereUniqueInput from "./generated/prisma.graphql"
+# import LocationWhereInput from "./generated/prisma.graphql"
+# import LocationOrderByInput from "./generated/prisma.graphql"
+# import BusLocationWhereInput from "./generated/prisma.graphql"
+# import BusLocationOrderByInput from "./generated/prisma.graphql"
+# import BusLocation from "./generated/prisma.graphql"
+# import ArrivingToWhereInput from "./generated/prisma.graphql"
+# import ArrivingToOrderByInput from "./generated/prisma.graphql"
+# import RouteOrderByInput from "./generated/prisma.graphql"
+# import RouteWhereInput from "./generated/prisma.graphql"
+# import Route from "./generated/prisma.graphql"
+# import RouteWhereUniqueInput from "./generated/prisma.graphql"
+# import RouteCreateInput from "./generated/prisma.graphql"
+# import RouteUpdateInput from "./generated/prisma.graphql"
+# import BusUpdateInput from "./generated/prisma.graphql"
+# import PlannedExit from "./generated/prisma.graphql"
+# import PlannedExitWhereInput from "./generated/prisma.graphql"
+# import PlannedExitOrderByInput from "./generated/prisma.graphql"
+# import AsignedRouteCreateInput from "./generated/prisma.graphql"
+# import AsignedRoute from "./generated/prisma.graphql"
+# import AsignedRouteWhereUniqueInput from "./generated/prisma.graphql"
+# import AsignedRouteUpdateInput from "./generated/prisma.graphql"
+# import AsignedRouteWhereInput from "./generated/prisma.graphql"
+# import AsignedRouteOrderByInput from "./generated/prisma.graphql"
+
+
+scalar UUID
+
+input UpdateBusPostions {
+  id: UUID
+  m1ID: String
+  location: LocationCreateInput!
+  status: String
+  speed: Float
+  heading: Float
+}
+
+input StopInput {
+  m1ID: String!
+}
+
+type PosBus {
+  position: Location!
+}
+
+type Predictions {
+  inbound: [String]
+  outbound: [String]
+}
+
+type Query {
+  getBusesForStop(data: StopInput): [ArrivingTo]
+  stops(where: StopWhereInput, orderBy: StopOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Stop]!
+  buses(where: BusWhereInput, orderBy: BusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Bus]!
+  bus(where: BusWhereUniqueInput!): Bus
+  locations(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Location]!
+  busLocations(where: BusLocationWhereInput, orderBy: BusLocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [BusLocation]!
+  predictions: Predictions
+  getId: String
+  arrivingToes(where: ArrivingToWhereInput, orderBy: ArrivingToOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ArrivingTo]!
+  routes(where: RouteWhereInput, orderBy: RouteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Route]!
+  plannedExits(where: PlannedExitWhereInput, orderBy: PlannedExitOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PlannedExit]!
+  route(where: RouteWhereUniqueInput!): Route
+  asignedRoute(where: AsignedRouteWhereUniqueInput!): AsignedRoute
+  asignedRoutes(where: AsignedRouteWhereInput, orderBy: AsignedRouteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [AsignedRoute]!
+}
+
+input DeleteArrivingTosData {
+  ids: [String!]!
+}
+
+type Count {
+  count: Int
+}
+
+type Mutation {
+  createArrivingTo(data: ArrivingToCreateInput!): ArrivingTo!
+  createAsignedRoute(data: AsignedRouteCreateInput!): AsignedRoute!
+  createBus(data: BusCreateInput!): Bus!
+  createStop(data: StopCreateInput!): Stop!
+  updateBus(data: BusUpdateInput!, where: BusWhereUniqueInput!): Bus
+  deleteArrivingTo(where: ArrivingToWhereUniqueInput!): ArrivingTo
+  updateBuses(busses: [UpdateBusPostions]): BatchPayload
+  upsertStop(where: StopWhereUniqueInput!, create: StopCreateInput!, update: StopUpdateInput!): Stop!
+  deleteBus(where: BusWhereUniqueInput!): Bus
+  createPlannedExit(data: PlannedExitCreateInput!): PlannedExit!
+  updateRoute(data: RouteUpdateInput!, where: RouteWhereUniqueInput!): Route
+  upsertRoute(where: RouteWhereUniqueInput!, create: RouteCreateInput!, update: RouteUpdateInput!): Route!
+  updateAsignedRoute(data: AsignedRouteUpdateInput!, where: AsignedRouteWhereUniqueInput!): AsignedRoute
+  deleteArrivingTos(data: DeleteArrivingTosData): Count
+}

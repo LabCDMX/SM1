@@ -1,0 +1,2270 @@
+type AggregateArrivingTo {
+  count: Int!
+}
+
+type AggregateAsignedRoute {
+  count: Int!
+}
+
+type AggregateBus {
+  count: Int!
+}
+
+type AggregateBusLocation {
+  count: Int!
+}
+
+type AggregateLocation {
+  count: Int!
+}
+
+type AggregatePlannedExit {
+  count: Int!
+}
+
+type AggregatePoint {
+  count: Int!
+}
+
+type AggregateRoute {
+  count: Int!
+}
+
+type AggregateStop {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type ArrivingTo {
+  id: UUID!
+  stop(where: StopWhereInput): Stop!
+  time: DateTime!
+  bus(where: BusWhereInput): Bus!
+}
+
+# A connection to a list of items.
+type ArrivingToConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [ArrivingToEdge]!
+  aggregate: AggregateArrivingTo!
+}
+
+input ArrivingToCreateInput {
+  time: DateTime!
+  stop: StopCreateOneWithoutOnComingInput!
+  bus: BusCreateOneWithoutArrivingToInput!
+}
+
+input ArrivingToCreateManyInput {
+  create: [ArrivingToCreateInput!]
+  connect: [ArrivingToWhereUniqueInput!]
+}
+
+input ArrivingToCreateManyWithoutBusInput {
+  create: [ArrivingToCreateWithoutBusInput!]
+  connect: [ArrivingToWhereUniqueInput!]
+}
+
+input ArrivingToCreateManyWithoutStopInput {
+  create: [ArrivingToCreateWithoutStopInput!]
+  connect: [ArrivingToWhereUniqueInput!]
+}
+
+input ArrivingToCreateWithoutBusInput {
+  time: DateTime!
+  stop: StopCreateOneWithoutOnComingInput!
+}
+
+input ArrivingToCreateWithoutStopInput {
+  time: DateTime!
+  bus: BusCreateOneWithoutArrivingToInput!
+}
+
+# An edge in a connection.
+type ArrivingToEdge {
+  # The item at the end of the edge.
+  node: ArrivingTo!
+
+  # A cursor for use in pagination.
+  cursor: String!
+}
+
+enum ArrivingToOrderByInput {
+  id_ASC
+  id_DESC
+  time_ASC
+  time_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type ArrivingToPreviousValues {
+  id: UUID!
+  time: DateTime!
+}
+
+type ArrivingToSubscriptionPayload {
+  mutation: MutationType!
+  node: ArrivingTo
+  updatedFields: [String!]
+  previousValues: ArrivingToPreviousValues
+}
+
+input ArrivingToSubscriptionWhereInput {
+  # Logical AND on all given filters.
+  AND: [ArrivingToSubscriptionWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [ArrivingToSubscriptionWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [ArrivingToSubscriptionWhereInput!]
+
+  # The subscription event gets dispatched when it's listed in mutation_in
+  mutation_in: [MutationType!]
+
+  # The subscription event gets only dispatched when one of the updated fields names is included in this list
+  updatedFields_contains: String
+
+  # The subscription event gets only dispatched when all of the field names included in this list have been updated
+  updatedFields_contains_every: [String!]
+
+  # The subscription event gets only dispatched when some of the field names included in this list have been updated
+  updatedFields_contains_some: [String!]
+  node: ArrivingToWhereInput
+}
+
+input ArrivingToUpdateDataInput {
+  time: DateTime
+  stop: StopUpdateOneWithoutOnComingInput
+  bus: BusUpdateOneWithoutArrivingToInput
+}
+
+input ArrivingToUpdateInput {
+  time: DateTime
+  stop: StopUpdateOneWithoutOnComingInput
+  bus: BusUpdateOneWithoutArrivingToInput
+}
+
+input ArrivingToUpdateManyInput {
+  create: [ArrivingToCreateInput!]
+  connect: [ArrivingToWhereUniqueInput!]
+  disconnect: [ArrivingToWhereUniqueInput!]
+  delete: [ArrivingToWhereUniqueInput!]
+  update: [ArrivingToUpdateWithWhereUniqueNestedInput!]
+  upsert: [ArrivingToUpsertWithWhereUniqueNestedInput!]
+}
+
+input ArrivingToUpdateManyWithoutBusInput {
+  create: [ArrivingToCreateWithoutBusInput!]
+  connect: [ArrivingToWhereUniqueInput!]
+  disconnect: [ArrivingToWhereUniqueInput!]
+  delete: [ArrivingToWhereUniqueInput!]
+  update: [ArrivingToUpdateWithWhereUniqueWithoutBusInput!]
+  upsert: [ArrivingToUpsertWithWhereUniqueWithoutBusInput!]
+}
+
+input ArrivingToUpdateManyWithoutStopInput {
+  create: [ArrivingToCreateWithoutStopInput!]
+  connect: [ArrivingToWhereUniqueInput!]
+  disconnect: [ArrivingToWhereUniqueInput!]
+  delete: [ArrivingToWhereUniqueInput!]
+  update: [ArrivingToUpdateWithWhereUniqueWithoutStopInput!]
+  upsert: [ArrivingToUpsertWithWhereUniqueWithoutStopInput!]
+}
+
+input ArrivingToUpdateWithoutBusDataInput {
+  time: DateTime
+  stop: StopUpdateOneWithoutOnComingInput
+}
+
+input ArrivingToUpdateWithoutStopDataInput {
+  time: DateTime
+  bus: BusUpdateOneWithoutArrivingToInput
+}
+
+input ArrivingToUpdateWithWhereUniqueNestedInput {
+  where: ArrivingToWhereUniqueInput!
+  data: ArrivingToUpdateDataInput!
+}
+
+input ArrivingToUpdateWithWhereUniqueWithoutBusInput {
+  where: ArrivingToWhereUniqueInput!
+  data: ArrivingToUpdateWithoutBusDataInput!
+}
+
+input ArrivingToUpdateWithWhereUniqueWithoutStopInput {
+  where: ArrivingToWhereUniqueInput!
+  data: ArrivingToUpdateWithoutStopDataInput!
+}
+
+input ArrivingToUpsertWithWhereUniqueNestedInput {
+  where: ArrivingToWhereUniqueInput!
+  update: ArrivingToUpdateDataInput!
+  create: ArrivingToCreateInput!
+}
+
+input ArrivingToUpsertWithWhereUniqueWithoutBusInput {
+  where: ArrivingToWhereUniqueInput!
+  update: ArrivingToUpdateWithoutBusDataInput!
+  create: ArrivingToCreateWithoutBusInput!
+}
+
+input ArrivingToUpsertWithWhereUniqueWithoutStopInput {
+  where: ArrivingToWhereUniqueInput!
+  update: ArrivingToUpdateWithoutStopDataInput!
+  create: ArrivingToCreateWithoutStopInput!
+}
+
+input ArrivingToWhereInput {
+  # Logical AND on all given filters.
+  AND: [ArrivingToWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [ArrivingToWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [ArrivingToWhereInput!]
+  time: DateTime
+
+  # All values that are not equal to given value.
+  time_not: DateTime
+
+  # All values that are contained in given list.
+  time_in: [DateTime!]
+
+  # All values that are not contained in given list.
+  time_not_in: [DateTime!]
+
+  # All values less than the given value.
+  time_lt: DateTime
+
+  # All values less than or equal the given value.
+  time_lte: DateTime
+
+  # All values greater than the given value.
+  time_gt: DateTime
+
+  # All values greater than or equal the given value.
+  time_gte: DateTime
+  stop: StopWhereInput
+  bus: BusWhereInput
+}
+
+input ArrivingToWhereUniqueInput {
+  id: UUID
+}
+
+type AsignedRoute {
+  m1ID: String!
+  displayName: String
+  buses: [String!]!
+}
+
+# A connection to a list of items.
+type AsignedRouteConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [AsignedRouteEdge]!
+  aggregate: AggregateAsignedRoute!
+}
+
+input AsignedRouteCreatebusesInput {
+  set: [String!]
+}
+
+input AsignedRouteCreateInput {
+  m1ID: String!
+  displayName: String
+  buses: AsignedRouteCreatebusesInput
+}
+
+# An edge in a connection.
+type AsignedRouteEdge {
+  # The item at the end of the edge.
+  node: AsignedRoute!
+
+  # A cursor for use in pagination.
+  cursor: String!
+}
+
+enum AsignedRouteOrderByInput {
+  m1ID_ASC
+  m1ID_DESC
+  displayName_ASC
+  displayName_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type AsignedRoutePreviousValues {
+  m1ID: String!
+  displayName: String
+  buses: [String!]!
+}
+
+type AsignedRouteSubscriptionPayload {
+  mutation: MutationType!
+  node: AsignedRoute
+  updatedFields: [String!]
+  previousValues: AsignedRoutePreviousValues
+}
+
+input AsignedRouteSubscriptionWhereInput {
+  # Logical AND on all given filters.
+  AND: [AsignedRouteSubscriptionWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [AsignedRouteSubscriptionWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [AsignedRouteSubscriptionWhereInput!]
+
+  # The subscription event gets dispatched when it's listed in mutation_in
+  mutation_in: [MutationType!]
+
+  # The subscription event gets only dispatched when one of the updated fields names is included in this list
+  updatedFields_contains: String
+
+  # The subscription event gets only dispatched when all of the field names included in this list have been updated
+  updatedFields_contains_every: [String!]
+
+  # The subscription event gets only dispatched when some of the field names included in this list have been updated
+  updatedFields_contains_some: [String!]
+  node: AsignedRouteWhereInput
+}
+
+input AsignedRouteUpdatebusesInput {
+  set: [String!]
+}
+
+input AsignedRouteUpdateInput {
+  m1ID: String
+  displayName: String
+  buses: AsignedRouteUpdatebusesInput
+}
+
+input AsignedRouteWhereInput {
+  # Logical AND on all given filters.
+  AND: [AsignedRouteWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [AsignedRouteWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [AsignedRouteWhereInput!]
+  m1ID: String
+
+  # All values that are not equal to given value.
+  m1ID_not: String
+
+  # All values that are contained in given list.
+  m1ID_in: [String!]
+
+  # All values that are not contained in given list.
+  m1ID_not_in: [String!]
+
+  # All values less than the given value.
+  m1ID_lt: String
+
+  # All values less than or equal the given value.
+  m1ID_lte: String
+
+  # All values greater than the given value.
+  m1ID_gt: String
+
+  # All values greater than or equal the given value.
+  m1ID_gte: String
+
+  # All values containing the given string.
+  m1ID_contains: String
+
+  # All values not containing the given string.
+  m1ID_not_contains: String
+
+  # All values starting with the given string.
+  m1ID_starts_with: String
+
+  # All values not starting with the given string.
+  m1ID_not_starts_with: String
+
+  # All values ending with the given string.
+  m1ID_ends_with: String
+
+  # All values not ending with the given string.
+  m1ID_not_ends_with: String
+  displayName: String
+
+  # All values that are not equal to given value.
+  displayName_not: String
+
+  # All values that are contained in given list.
+  displayName_in: [String!]
+
+  # All values that are not contained in given list.
+  displayName_not_in: [String!]
+
+  # All values less than the given value.
+  displayName_lt: String
+
+  # All values less than or equal the given value.
+  displayName_lte: String
+
+  # All values greater than the given value.
+  displayName_gt: String
+
+  # All values greater than or equal the given value.
+  displayName_gte: String
+
+  # All values containing the given string.
+  displayName_contains: String
+
+  # All values not containing the given string.
+  displayName_not_contains: String
+
+  # All values starting with the given string.
+  displayName_starts_with: String
+
+  # All values not starting with the given string.
+  displayName_not_starts_with: String
+
+  # All values ending with the given string.
+  displayName_ends_with: String
+
+  # All values not ending with the given string.
+  displayName_not_ends_with: String
+}
+
+input AsignedRouteWhereUniqueInput {
+  m1ID: String
+}
+
+type BatchPayload {
+  # The number of nodes that have been affected by the Batch operation.
+  count: Long!
+}
+
+type Bus {
+  position(where: LocationWhereInput): Location!
+  id: UUID!
+  status: String
+  speed: Float
+  heading: Float
+  m1ID: String!
+  passangers(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
+  arrivingTo(where: ArrivingToWhereInput, orderBy: ArrivingToOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ArrivingTo!]
+  locations(where: BusLocationWhereInput, orderBy: BusLocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [BusLocation!]
+  busType: String
+  maxCapacity: Float
+  direction: String
+}
+
+# A connection to a list of items.
+type BusConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [BusEdge]!
+  aggregate: AggregateBus!
+}
+
+input BusCreateInput {
+  status: String
+  speed: Float
+  heading: Float
+  m1ID: String!
+  busType: String
+  maxCapacity: Float
+  direction: String
+  position: LocationCreateOneInput!
+  passangers: UserCreateManyWithoutOnBusInput
+  arrivingTo: ArrivingToCreateManyWithoutBusInput
+  locations: BusLocationCreateManyWithoutOwnerInput
+}
+
+input BusCreateOneWithoutArrivingToInput {
+  create: BusCreateWithoutArrivingToInput
+  connect: BusWhereUniqueInput
+}
+
+input BusCreateOneWithoutLocationsInput {
+  create: BusCreateWithoutLocationsInput
+  connect: BusWhereUniqueInput
+}
+
+input BusCreateOneWithoutPassangersInput {
+  create: BusCreateWithoutPassangersInput
+  connect: BusWhereUniqueInput
+}
+
+input BusCreateWithoutArrivingToInput {
+  status: String
+  speed: Float
+  heading: Float
+  m1ID: String!
+  busType: String
+  maxCapacity: Float
+  direction: String
+  position: LocationCreateOneInput!
+  passangers: UserCreateManyWithoutOnBusInput
+  locations: BusLocationCreateManyWithoutOwnerInput
+}
+
+input BusCreateWithoutLocationsInput {
+  status: String
+  speed: Float
+  heading: Float
+  m1ID: String!
+  busType: String
+  maxCapacity: Float
+  direction: String
+  position: LocationCreateOneInput!
+  passangers: UserCreateManyWithoutOnBusInput
+  arrivingTo: ArrivingToCreateManyWithoutBusInput
+}
+
+input BusCreateWithoutPassangersInput {
+  status: String
+  speed: Float
+  heading: Float
+  m1ID: String!
+  busType: String
+  maxCapacity: Float
+  direction: String
+  position: LocationCreateOneInput!
+  arrivingTo: ArrivingToCreateManyWithoutBusInput
+  locations: BusLocationCreateManyWithoutOwnerInput
+}
+
+# An edge in a connection.
+type BusEdge {
+  # The item at the end of the edge.
+  node: Bus!
+
+  # A cursor for use in pagination.
+  cursor: String!
+}
+
+type BusLocation {
+  id: UUID!
+  position(where: LocationWhereInput): Location!
+  owner(where: BusWhereInput): Bus
+  timestamp: DateTime!
+}
+
+# A connection to a list of items.
+type BusLocationConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [BusLocationEdge]!
+  aggregate: AggregateBusLocation!
+}
+
+input BusLocationCreateInput {
+  timestamp: DateTime!
+  position: LocationCreateOneInput!
+  owner: BusCreateOneWithoutLocationsInput
+}
+
+input BusLocationCreateManyWithoutOwnerInput {
+  create: [BusLocationCreateWithoutOwnerInput!]
+  connect: [BusLocationWhereUniqueInput!]
+}
+
+input BusLocationCreateWithoutOwnerInput {
+  timestamp: DateTime!
+  position: LocationCreateOneInput!
+}
+
+# An edge in a connection.
+type BusLocationEdge {
+  # The item at the end of the edge.
+  node: BusLocation!
+
+  # A cursor for use in pagination.
+  cursor: String!
+}
+
+enum BusLocationOrderByInput {
+  id_ASC
+  id_DESC
+  timestamp_ASC
+  timestamp_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type BusLocationPreviousValues {
+  id: UUID!
+  timestamp: DateTime!
+}
+
+type BusLocationSubscriptionPayload {
+  mutation: MutationType!
+  node: BusLocation
+  updatedFields: [String!]
+  previousValues: BusLocationPreviousValues
+}
+
+input BusLocationSubscriptionWhereInput {
+  # Logical AND on all given filters.
+  AND: [BusLocationSubscriptionWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [BusLocationSubscriptionWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [BusLocationSubscriptionWhereInput!]
+
+  # The subscription event gets dispatched when it's listed in mutation_in
+  mutation_in: [MutationType!]
+
+  # The subscription event gets only dispatched when one of the updated fields names is included in this list
+  updatedFields_contains: String
+
+  # The subscription event gets only dispatched when all of the field names included in this list have been updated
+  updatedFields_contains_every: [String!]
+
+  # The subscription event gets only dispatched when some of the field names included in this list have been updated
+  updatedFields_contains_some: [String!]
+  node: BusLocationWhereInput
+}
+
+input BusLocationUpdateInput {
+  timestamp: DateTime
+  position: LocationUpdateOneInput
+  owner: BusUpdateOneWithoutLocationsInput
+}
+
+input BusLocationUpdateManyWithoutOwnerInput {
+  create: [BusLocationCreateWithoutOwnerInput!]
+  connect: [BusLocationWhereUniqueInput!]
+  disconnect: [BusLocationWhereUniqueInput!]
+  delete: [BusLocationWhereUniqueInput!]
+  update: [BusLocationUpdateWithWhereUniqueWithoutOwnerInput!]
+  upsert: [BusLocationUpsertWithWhereUniqueWithoutOwnerInput!]
+}
+
+input BusLocationUpdateWithoutOwnerDataInput {
+  timestamp: DateTime
+  position: LocationUpdateOneInput
+}
+
+input BusLocationUpdateWithWhereUniqueWithoutOwnerInput {
+  where: BusLocationWhereUniqueInput!
+  data: BusLocationUpdateWithoutOwnerDataInput!
+}
+
+input BusLocationUpsertWithWhereUniqueWithoutOwnerInput {
+  where: BusLocationWhereUniqueInput!
+  update: BusLocationUpdateWithoutOwnerDataInput!
+  create: BusLocationCreateWithoutOwnerInput!
+}
+
+input BusLocationWhereInput {
+  # Logical AND on all given filters.
+  AND: [BusLocationWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [BusLocationWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [BusLocationWhereInput!]
+  timestamp: DateTime
+
+  # All values that are not equal to given value.
+  timestamp_not: DateTime
+
+  # All values that are contained in given list.
+  timestamp_in: [DateTime!]
+
+  # All values that are not contained in given list.
+  timestamp_not_in: [DateTime!]
+
+  # All values less than the given value.
+  timestamp_lt: DateTime
+
+  # All values less than or equal the given value.
+  timestamp_lte: DateTime
+
+  # All values greater than the given value.
+  timestamp_gt: DateTime
+
+  # All values greater than or equal the given value.
+  timestamp_gte: DateTime
+  position: LocationWhereInput
+  owner: BusWhereInput
+}
+
+input BusLocationWhereUniqueInput {
+  id: UUID
+}
+
+enum BusOrderByInput {
+  id_ASC
+  id_DESC
+  status_ASC
+  status_DESC
+  speed_ASC
+  speed_DESC
+  heading_ASC
+  heading_DESC
+  m1ID_ASC
+  m1ID_DESC
+  busType_ASC
+  busType_DESC
+  maxCapacity_ASC
+  maxCapacity_DESC
+  direction_ASC
+  direction_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type BusPreviousValues {
+  id: UUID!
+  status: String
+  speed: Float
+  heading: Float
+  m1ID: String!
+  busType: String
+  maxCapacity: Float
+  direction: String
+}
+
+type BusSubscriptionPayload {
+  mutation: MutationType!
+  node: Bus
+  updatedFields: [String!]
+  previousValues: BusPreviousValues
+}
+
+input BusSubscriptionWhereInput {
+  # Logical AND on all given filters.
+  AND: [BusSubscriptionWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [BusSubscriptionWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [BusSubscriptionWhereInput!]
+
+  # The subscription event gets dispatched when it's listed in mutation_in
+  mutation_in: [MutationType!]
+
+  # The subscription event gets only dispatched when one of the updated fields names is included in this list
+  updatedFields_contains: String
+
+  # The subscription event gets only dispatched when all of the field names included in this list have been updated
+  updatedFields_contains_every: [String!]
+
+  # The subscription event gets only dispatched when some of the field names included in this list have been updated
+  updatedFields_contains_some: [String!]
+  node: BusWhereInput
+}
+
+input BusUpdateInput {
+  status: String
+  speed: Float
+  heading: Float
+  m1ID: String
+  busType: String
+  maxCapacity: Float
+  direction: String
+  position: LocationUpdateOneInput
+  passangers: UserUpdateManyWithoutOnBusInput
+  arrivingTo: ArrivingToUpdateManyWithoutBusInput
+  locations: BusLocationUpdateManyWithoutOwnerInput
+}
+
+input BusUpdateOneWithoutArrivingToInput {
+  create: BusCreateWithoutArrivingToInput
+  connect: BusWhereUniqueInput
+  delete: Boolean
+  update: BusUpdateWithoutArrivingToDataInput
+  upsert: BusUpsertWithoutArrivingToInput
+}
+
+input BusUpdateOneWithoutLocationsInput {
+  create: BusCreateWithoutLocationsInput
+  connect: BusWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
+  update: BusUpdateWithoutLocationsDataInput
+  upsert: BusUpsertWithoutLocationsInput
+}
+
+input BusUpdateOneWithoutPassangersInput {
+  create: BusCreateWithoutPassangersInput
+  connect: BusWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
+  update: BusUpdateWithoutPassangersDataInput
+  upsert: BusUpsertWithoutPassangersInput
+}
+
+input BusUpdateWithoutArrivingToDataInput {
+  status: String
+  speed: Float
+  heading: Float
+  m1ID: String
+  busType: String
+  maxCapacity: Float
+  direction: String
+  position: LocationUpdateOneInput
+  passangers: UserUpdateManyWithoutOnBusInput
+  locations: BusLocationUpdateManyWithoutOwnerInput
+}
+
+input BusUpdateWithoutLocationsDataInput {
+  status: String
+  speed: Float
+  heading: Float
+  m1ID: String
+  busType: String
+  maxCapacity: Float
+  direction: String
+  position: LocationUpdateOneInput
+  passangers: UserUpdateManyWithoutOnBusInput
+  arrivingTo: ArrivingToUpdateManyWithoutBusInput
+}
+
+input BusUpdateWithoutPassangersDataInput {
+  status: String
+  speed: Float
+  heading: Float
+  m1ID: String
+  busType: String
+  maxCapacity: Float
+  direction: String
+  position: LocationUpdateOneInput
+  arrivingTo: ArrivingToUpdateManyWithoutBusInput
+  locations: BusLocationUpdateManyWithoutOwnerInput
+}
+
+input BusUpsertWithoutArrivingToInput {
+  update: BusUpdateWithoutArrivingToDataInput!
+  create: BusCreateWithoutArrivingToInput!
+}
+
+input BusUpsertWithoutLocationsInput {
+  update: BusUpdateWithoutLocationsDataInput!
+  create: BusCreateWithoutLocationsInput!
+}
+
+input BusUpsertWithoutPassangersInput {
+  update: BusUpdateWithoutPassangersDataInput!
+  create: BusCreateWithoutPassangersInput!
+}
+
+input BusWhereInput {
+  # Logical AND on all given filters.
+  AND: [BusWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [BusWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [BusWhereInput!]
+  status: String
+
+  # All values that are not equal to given value.
+  status_not: String
+
+  # All values that are contained in given list.
+  status_in: [String!]
+
+  # All values that are not contained in given list.
+  status_not_in: [String!]
+
+  # All values less than the given value.
+  status_lt: String
+
+  # All values less than or equal the given value.
+  status_lte: String
+
+  # All values greater than the given value.
+  status_gt: String
+
+  # All values greater than or equal the given value.
+  status_gte: String
+
+  # All values containing the given string.
+  status_contains: String
+
+  # All values not containing the given string.
+  status_not_contains: String
+
+  # All values starting with the given string.
+  status_starts_with: String
+
+  # All values not starting with the given string.
+  status_not_starts_with: String
+
+  # All values ending with the given string.
+  status_ends_with: String
+
+  # All values not ending with the given string.
+  status_not_ends_with: String
+  speed: Float
+
+  # All values that are not equal to given value.
+  speed_not: Float
+
+  # All values that are contained in given list.
+  speed_in: [Float!]
+
+  # All values that are not contained in given list.
+  speed_not_in: [Float!]
+
+  # All values less than the given value.
+  speed_lt: Float
+
+  # All values less than or equal the given value.
+  speed_lte: Float
+
+  # All values greater than the given value.
+  speed_gt: Float
+
+  # All values greater than or equal the given value.
+  speed_gte: Float
+  heading: Float
+
+  # All values that are not equal to given value.
+  heading_not: Float
+
+  # All values that are contained in given list.
+  heading_in: [Float!]
+
+  # All values that are not contained in given list.
+  heading_not_in: [Float!]
+
+  # All values less than the given value.
+  heading_lt: Float
+
+  # All values less than or equal the given value.
+  heading_lte: Float
+
+  # All values greater than the given value.
+  heading_gt: Float
+
+  # All values greater than or equal the given value.
+  heading_gte: Float
+  m1ID: String
+
+  # All values that are not equal to given value.
+  m1ID_not: String
+
+  # All values that are contained in given list.
+  m1ID_in: [String!]
+
+  # All values that are not contained in given list.
+  m1ID_not_in: [String!]
+
+  # All values less than the given value.
+  m1ID_lt: String
+
+  # All values less than or equal the given value.
+  m1ID_lte: String
+
+  # All values greater than the given value.
+  m1ID_gt: String
+
+  # All values greater than or equal the given value.
+  m1ID_gte: String
+
+  # All values containing the given string.
+  m1ID_contains: String
+
+  # All values not containing the given string.
+  m1ID_not_contains: String
+
+  # All values starting with the given string.
+  m1ID_starts_with: String
+
+  # All values not starting with the given string.
+  m1ID_not_starts_with: String
+
+  # All values ending with the given string.
+  m1ID_ends_with: String
+
+  # All values not ending with the given string.
+  m1ID_not_ends_with: String
+  busType: String
+
+  # All values that are not equal to given value.
+  busType_not: String
+
+  # All values that are contained in given list.
+  busType_in: [String!]
+
+  # All values that are not contained in given list.
+  busType_not_in: [String!]
+
+  # All values less than the given value.
+  busType_lt: String
+
+  # All values less than or equal the given value.
+  busType_lte: String
+
+  # All values greater than the given value.
+  busType_gt: String
+
+  # All values greater than or equal the given value.
+  busType_gte: String
+
+  # All values containing the given string.
+  busType_contains: String
+
+  # All values not containing the given string.
+  busType_not_contains: String
+
+  # All values starting with the given string.
+  busType_starts_with: String
+
+  # All values not starting with the given string.
+  busType_not_starts_with: String
+
+  # All values ending with the given string.
+  busType_ends_with: String
+
+  # All values not ending with the given string.
+  busType_not_ends_with: String
+  maxCapacity: Float
+
+  # All values that are not equal to given value.
+  maxCapacity_not: Float
+
+  # All values that are contained in given list.
+  maxCapacity_in: [Float!]
+
+  # All values that are not contained in given list.
+  maxCapacity_not_in: [Float!]
+
+  # All values less than the given value.
+  maxCapacity_lt: Float
+
+  # All values less than or equal the given value.
+  maxCapacity_lte: Float
+
+  # All values greater than the given value.
+  maxCapacity_gt: Float
+
+  # All values greater than or equal the given value.
+  maxCapacity_gte: Float
+  direction: String
+
+  # All values that are not equal to given value.
+  direction_not: String
+
+  # All values that are contained in given list.
+  direction_in: [String!]
+
+  # All values that are not contained in given list.
+  direction_not_in: [String!]
+
+  # All values less than the given value.
+  direction_lt: String
+
+  # All values less than or equal the given value.
+  direction_lte: String
+
+  # All values greater than the given value.
+  direction_gt: String
+
+  # All values greater than or equal the given value.
+  direction_gte: String
+
+  # All values containing the given string.
+  direction_contains: String
+
+  # All values not containing the given string.
+  direction_not_contains: String
+
+  # All values starting with the given string.
+  direction_starts_with: String
+
+  # All values not starting with the given string.
+  direction_not_starts_with: String
+
+  # All values ending with the given string.
+  direction_ends_with: String
+
+  # All values not ending with the given string.
+  direction_not_ends_with: String
+  position: LocationWhereInput
+  passangers_every: UserWhereInput
+  passangers_some: UserWhereInput
+  passangers_none: UserWhereInput
+  arrivingTo_every: ArrivingToWhereInput
+  arrivingTo_some: ArrivingToWhereInput
+  arrivingTo_none: ArrivingToWhereInput
+  locations_every: BusLocationWhereInput
+  locations_some: BusLocationWhereInput
+  locations_none: BusLocationWhereInput
+}
+
+input BusWhereUniqueInput {
+  id: UUID
+  m1ID: String
+}
+
+scalar DateTime
+
+type Location {
+  latitude: Float!
+  longitude: Float!
+}
+
+# A connection to a list of items.
+type LocationConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [LocationEdge]!
+  aggregate: AggregateLocation!
+}
+
+input LocationCreateInput {
+  latitude: Float!
+  longitude: Float!
+}
+
+input LocationCreateOneInput {
+  create: LocationCreateInput
+}
+
+# An edge in a connection.
+type LocationEdge {
+  # The item at the end of the edge.
+  node: Location!
+
+  # A cursor for use in pagination.
+  cursor: String!
+}
+
+enum LocationOrderByInput {
+  latitude_ASC
+  latitude_DESC
+  longitude_ASC
+  longitude_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type LocationPreviousValues {
+  latitude: Float!
+  longitude: Float!
+}
+
+type LocationSubscriptionPayload {
+  mutation: MutationType!
+  node: Location
+  updatedFields: [String!]
+  previousValues: LocationPreviousValues
+}
+
+input LocationSubscriptionWhereInput {
+  # Logical AND on all given filters.
+  AND: [LocationSubscriptionWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [LocationSubscriptionWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [LocationSubscriptionWhereInput!]
+
+  # The subscription event gets dispatched when it's listed in mutation_in
+  mutation_in: [MutationType!]
+
+  # The subscription event gets only dispatched when one of the updated fields names is included in this list
+  updatedFields_contains: String
+
+  # The subscription event gets only dispatched when all of the field names included in this list have been updated
+  updatedFields_contains_every: [String!]
+
+  # The subscription event gets only dispatched when some of the field names included in this list have been updated
+  updatedFields_contains_some: [String!]
+  node: LocationWhereInput
+}
+
+input LocationUpdateDataInput {
+  latitude: Float
+  longitude: Float
+}
+
+input LocationUpdateInput {
+  latitude: Float
+  longitude: Float
+}
+
+input LocationUpdateOneInput {
+  create: LocationCreateInput
+  delete: Boolean
+  update: LocationUpdateDataInput
+  upsert: LocationUpsertNestedInput
+}
+
+input LocationUpsertNestedInput {
+  update: LocationUpdateDataInput!
+  create: LocationCreateInput!
+}
+
+input LocationWhereInput {
+  # Logical AND on all given filters.
+  AND: [LocationWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [LocationWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [LocationWhereInput!]
+  latitude: Float
+
+  # All values that are not equal to given value.
+  latitude_not: Float
+
+  # All values that are contained in given list.
+  latitude_in: [Float!]
+
+  # All values that are not contained in given list.
+  latitude_not_in: [Float!]
+
+  # All values less than the given value.
+  latitude_lt: Float
+
+  # All values less than or equal the given value.
+  latitude_lte: Float
+
+  # All values greater than the given value.
+  latitude_gt: Float
+
+  # All values greater than or equal the given value.
+  latitude_gte: Float
+  longitude: Float
+
+  # All values that are not equal to given value.
+  longitude_not: Float
+
+  # All values that are contained in given list.
+  longitude_in: [Float!]
+
+  # All values that are not contained in given list.
+  longitude_not_in: [Float!]
+
+  # All values less than the given value.
+  longitude_lt: Float
+
+  # All values less than or equal the given value.
+  longitude_lte: Float
+
+  # All values greater than the given value.
+  longitude_gt: Float
+
+  # All values greater than or equal the given value.
+  longitude_gte: Float
+}
+
+# The `Long` scalar type represents non-fractional signed whole numeric values.
+# Long can represent values between -(2^63) and 2^63 - 1.
+scalar Long
+
+type Mutation {
+  createPoint(data: PointCreateInput!): Point!
+  createRoute(data: RouteCreateInput!): Route!
+  createUser(data: UserCreateInput!): User!
+  createBusLocation(data: BusLocationCreateInput!): BusLocation!
+  createBus(data: BusCreateInput!): Bus!
+  createAsignedRoute(data: AsignedRouteCreateInput!): AsignedRoute!
+  createPlannedExit(data: PlannedExitCreateInput!): PlannedExit!
+  createStop(data: StopCreateInput!): Stop!
+  createLocation(data: LocationCreateInput!): Location!
+  createArrivingTo(data: ArrivingToCreateInput!): ArrivingTo!
+  updatePoint(data: PointUpdateInput!, where: PointWhereUniqueInput!): Point
+  updateRoute(data: RouteUpdateInput!, where: RouteWhereUniqueInput!): Route
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateBusLocation(data: BusLocationUpdateInput!, where: BusLocationWhereUniqueInput!): BusLocation
+  updateBus(data: BusUpdateInput!, where: BusWhereUniqueInput!): Bus
+  updateAsignedRoute(data: AsignedRouteUpdateInput!, where: AsignedRouteWhereUniqueInput!): AsignedRoute
+  updatePlannedExit(data: PlannedExitUpdateInput!, where: PlannedExitWhereUniqueInput!): PlannedExit
+  updateStop(data: StopUpdateInput!, where: StopWhereUniqueInput!): Stop
+  updateArrivingTo(data: ArrivingToUpdateInput!, where: ArrivingToWhereUniqueInput!): ArrivingTo
+  deletePoint(where: PointWhereUniqueInput!): Point
+  deleteRoute(where: RouteWhereUniqueInput!): Route
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteBusLocation(where: BusLocationWhereUniqueInput!): BusLocation
+  deleteBus(where: BusWhereUniqueInput!): Bus
+  deleteAsignedRoute(where: AsignedRouteWhereUniqueInput!): AsignedRoute
+  deletePlannedExit(where: PlannedExitWhereUniqueInput!): PlannedExit
+  deleteStop(where: StopWhereUniqueInput!): Stop
+  deleteArrivingTo(where: ArrivingToWhereUniqueInput!): ArrivingTo
+  upsertPoint(where: PointWhereUniqueInput!, create: PointCreateInput!, update: PointUpdateInput!): Point!
+  upsertRoute(where: RouteWhereUniqueInput!, create: RouteCreateInput!, update: RouteUpdateInput!): Route!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  upsertBusLocation(where: BusLocationWhereUniqueInput!, create: BusLocationCreateInput!, update: BusLocationUpdateInput!): BusLocation!
+  upsertBus(where: BusWhereUniqueInput!, create: BusCreateInput!, update: BusUpdateInput!): Bus!
+  upsertAsignedRoute(where: AsignedRouteWhereUniqueInput!, create: AsignedRouteCreateInput!, update: AsignedRouteUpdateInput!): AsignedRoute!
+  upsertPlannedExit(where: PlannedExitWhereUniqueInput!, create: PlannedExitCreateInput!, update: PlannedExitUpdateInput!): PlannedExit!
+  upsertStop(where: StopWhereUniqueInput!, create: StopCreateInput!, update: StopUpdateInput!): Stop!
+  upsertArrivingTo(where: ArrivingToWhereUniqueInput!, create: ArrivingToCreateInput!, update: ArrivingToUpdateInput!): ArrivingTo!
+  updateManyPoints(data: PointUpdateInput!, where: PointWhereInput): BatchPayload!
+  updateManyRoutes(data: RouteUpdateInput!, where: RouteWhereInput): BatchPayload!
+  updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
+  updateManyBusLocations(data: BusLocationUpdateInput!, where: BusLocationWhereInput): BatchPayload!
+  updateManyBuses(data: BusUpdateInput!, where: BusWhereInput): BatchPayload!
+  updateManyAsignedRoutes(data: AsignedRouteUpdateInput!, where: AsignedRouteWhereInput): BatchPayload!
+  updateManyPlannedExits(data: PlannedExitUpdateInput!, where: PlannedExitWhereInput): BatchPayload!
+  updateManyStops(data: StopUpdateInput!, where: StopWhereInput): BatchPayload!
+  updateManyLocations(data: LocationUpdateInput!, where: LocationWhereInput): BatchPayload!
+  updateManyArrivingToes(data: ArrivingToUpdateInput!, where: ArrivingToWhereInput): BatchPayload!
+  deleteManyPoints(where: PointWhereInput): BatchPayload!
+  deleteManyRoutes(where: RouteWhereInput): BatchPayload!
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+  deleteManyBusLocations(where: BusLocationWhereInput): BatchPayload!
+  deleteManyBuses(where: BusWhereInput): BatchPayload!
+  deleteManyAsignedRoutes(where: AsignedRouteWhereInput): BatchPayload!
+  deleteManyPlannedExits(where: PlannedExitWhereInput): BatchPayload!
+  deleteManyStops(where: StopWhereInput): BatchPayload!
+  deleteManyLocations(where: LocationWhereInput): BatchPayload!
+  deleteManyArrivingToes(where: ArrivingToWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+# An object with an ID
+interface Node {
+  # The id of the object.
+  id: ID!
+}
+
+# Information about pagination in a connection.
+type PageInfo {
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean!
+
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean!
+
+  # When paginating backwards, the cursor to continue.
+  startCursor: String
+
+  # When paginating forwards, the cursor to continue.
+  endCursor: String
+}
+
+type PlannedExit {
+  id: UUID!
+  time: DateTime!
+  operator: UUID!
+}
+
+# A connection to a list of items.
+type PlannedExitConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [PlannedExitEdge]!
+  aggregate: AggregatePlannedExit!
+}
+
+input PlannedExitCreateInput {
+  time: DateTime!
+  operator: UUID!
+}
+
+# An edge in a connection.
+type PlannedExitEdge {
+  # The item at the end of the edge.
+  node: PlannedExit!
+
+  # A cursor for use in pagination.
+  cursor: String!
+}
+
+enum PlannedExitOrderByInput {
+  id_ASC
+  id_DESC
+  time_ASC
+  time_DESC
+  operator_ASC
+  operator_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type PlannedExitPreviousValues {
+  id: UUID!
+  time: DateTime!
+  operator: UUID!
+}
+
+type PlannedExitSubscriptionPayload {
+  mutation: MutationType!
+  node: PlannedExit
+  updatedFields: [String!]
+  previousValues: PlannedExitPreviousValues
+}
+
+input PlannedExitSubscriptionWhereInput {
+  # Logical AND on all given filters.
+  AND: [PlannedExitSubscriptionWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [PlannedExitSubscriptionWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [PlannedExitSubscriptionWhereInput!]
+
+  # The subscription event gets dispatched when it's listed in mutation_in
+  mutation_in: [MutationType!]
+
+  # The subscription event gets only dispatched when one of the updated fields names is included in this list
+  updatedFields_contains: String
+
+  # The subscription event gets only dispatched when all of the field names included in this list have been updated
+  updatedFields_contains_every: [String!]
+
+  # The subscription event gets only dispatched when some of the field names included in this list have been updated
+  updatedFields_contains_some: [String!]
+  node: PlannedExitWhereInput
+}
+
+input PlannedExitUpdateInput {
+  time: DateTime
+  operator: UUID
+}
+
+input PlannedExitWhereInput {
+  # Logical AND on all given filters.
+  AND: [PlannedExitWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [PlannedExitWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [PlannedExitWhereInput!]
+  time: DateTime
+
+  # All values that are not equal to given value.
+  time_not: DateTime
+
+  # All values that are contained in given list.
+  time_in: [DateTime!]
+
+  # All values that are not contained in given list.
+  time_not_in: [DateTime!]
+
+  # All values less than the given value.
+  time_lt: DateTime
+
+  # All values less than or equal the given value.
+  time_lte: DateTime
+
+  # All values greater than the given value.
+  time_gt: DateTime
+
+  # All values greater than or equal the given value.
+  time_gte: DateTime
+}
+
+input PlannedExitWhereUniqueInput {
+  id: UUID
+}
+
+type Point {
+  id: UUID!
+  position(where: RouteWhereInput): Route!
+}
+
+# A connection to a list of items.
+type PointConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [PointEdge]!
+  aggregate: AggregatePoint!
+}
+
+input PointCreateInput {
+  position: RouteCreateOneWithoutPointsInput!
+}
+
+input PointCreateManyWithoutPositionInput {
+  connect: [PointWhereUniqueInput!]
+}
+
+# An edge in a connection.
+type PointEdge {
+  # The item at the end of the edge.
+  node: Point!
+
+  # A cursor for use in pagination.
+  cursor: String!
+}
+
+enum PointOrderByInput {
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type PointPreviousValues {
+  id: UUID!
+}
+
+type PointSubscriptionPayload {
+  mutation: MutationType!
+  node: Point
+  updatedFields: [String!]
+  previousValues: PointPreviousValues
+}
+
+input PointSubscriptionWhereInput {
+  # Logical AND on all given filters.
+  AND: [PointSubscriptionWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [PointSubscriptionWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [PointSubscriptionWhereInput!]
+
+  # The subscription event gets dispatched when it's listed in mutation_in
+  mutation_in: [MutationType!]
+
+  # The subscription event gets only dispatched when one of the updated fields names is included in this list
+  updatedFields_contains: String
+
+  # The subscription event gets only dispatched when all of the field names included in this list have been updated
+  updatedFields_contains_every: [String!]
+
+  # The subscription event gets only dispatched when some of the field names included in this list have been updated
+  updatedFields_contains_some: [String!]
+  node: PointWhereInput
+}
+
+input PointUpdateInput {
+  position: RouteUpdateOneWithoutPointsInput
+}
+
+input PointUpdateManyWithoutPositionInput {
+  connect: [PointWhereUniqueInput!]
+  disconnect: [PointWhereUniqueInput!]
+  delete: [PointWhereUniqueInput!]
+}
+
+input PointWhereInput {
+  # Logical AND on all given filters.
+  AND: [PointWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [PointWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [PointWhereInput!]
+  position: RouteWhereInput
+}
+
+input PointWhereUniqueInput {
+  id: UUID
+}
+
+type Query {
+  points(where: PointWhereInput, orderBy: PointOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Point]!
+  routes(where: RouteWhereInput, orderBy: RouteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Route]!
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  busLocations(where: BusLocationWhereInput, orderBy: BusLocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [BusLocation]!
+  buses(where: BusWhereInput, orderBy: BusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Bus]!
+  asignedRoutes(where: AsignedRouteWhereInput, orderBy: AsignedRouteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [AsignedRoute]!
+  plannedExits(where: PlannedExitWhereInput, orderBy: PlannedExitOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PlannedExit]!
+  stops(where: StopWhereInput, orderBy: StopOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Stop]!
+  locations(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Location]!
+  arrivingToes(where: ArrivingToWhereInput, orderBy: ArrivingToOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ArrivingTo]!
+  point(where: PointWhereUniqueInput!): Point
+  route(where: RouteWhereUniqueInput!): Route
+  user(where: UserWhereUniqueInput!): User
+  busLocation(where: BusLocationWhereUniqueInput!): BusLocation
+  bus(where: BusWhereUniqueInput!): Bus
+  asignedRoute(where: AsignedRouteWhereUniqueInput!): AsignedRoute
+  plannedExit(where: PlannedExitWhereUniqueInput!): PlannedExit
+  stop(where: StopWhereUniqueInput!): Stop
+  arrivingTo(where: ArrivingToWhereUniqueInput!): ArrivingTo
+  pointsConnection(where: PointWhereInput, orderBy: PointOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PointConnection!
+  routesConnection(where: RouteWhereInput, orderBy: RouteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): RouteConnection!
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  busLocationsConnection(where: BusLocationWhereInput, orderBy: BusLocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BusLocationConnection!
+  busesConnection(where: BusWhereInput, orderBy: BusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BusConnection!
+  asignedRoutesConnection(where: AsignedRouteWhereInput, orderBy: AsignedRouteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AsignedRouteConnection!
+  plannedExitsConnection(where: PlannedExitWhereInput, orderBy: PlannedExitOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PlannedExitConnection!
+  stopsConnection(where: StopWhereInput, orderBy: StopOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): StopConnection!
+  locationsConnection(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LocationConnection!
+  arrivingToesConnection(where: ArrivingToWhereInput, orderBy: ArrivingToOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ArrivingToConnection!
+
+  # Fetches an object given its ID
+  node(
+    # The ID of an object
+    id: ID!
+  ): Node
+}
+
+type Route {
+  id: UUID!
+  m1ID: String!
+  points(where: PointWhereInput, orderBy: PointOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Point!]
+  stops(where: StopWhereInput, orderBy: StopOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Stop!]
+  buses(where: ArrivingToWhereInput, orderBy: ArrivingToOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ArrivingTo!]
+}
+
+# A connection to a list of items.
+type RouteConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [RouteEdge]!
+  aggregate: AggregateRoute!
+}
+
+input RouteCreateInput {
+  m1ID: String!
+  points: PointCreateManyWithoutPositionInput
+  stops: StopCreateManyWithoutRouteInput
+  buses: ArrivingToCreateManyInput
+}
+
+input RouteCreateOneWithoutPointsInput {
+  create: RouteCreateWithoutPointsInput
+  connect: RouteWhereUniqueInput
+}
+
+input RouteCreateOneWithoutStopsInput {
+  create: RouteCreateWithoutStopsInput
+  connect: RouteWhereUniqueInput
+}
+
+input RouteCreateWithoutPointsInput {
+  m1ID: String!
+  stops: StopCreateManyWithoutRouteInput
+  buses: ArrivingToCreateManyInput
+}
+
+input RouteCreateWithoutStopsInput {
+  m1ID: String!
+  points: PointCreateManyWithoutPositionInput
+  buses: ArrivingToCreateManyInput
+}
+
+# An edge in a connection.
+type RouteEdge {
+  # The item at the end of the edge.
+  node: Route!
+
+  # A cursor for use in pagination.
+  cursor: String!
+}
+
+enum RouteOrderByInput {
+  id_ASC
+  id_DESC
+  m1ID_ASC
+  m1ID_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type RoutePreviousValues {
+  id: UUID!
+  m1ID: String!
+}
+
+type RouteSubscriptionPayload {
+  mutation: MutationType!
+  node: Route
+  updatedFields: [String!]
+  previousValues: RoutePreviousValues
+}
+
+input RouteSubscriptionWhereInput {
+  # Logical AND on all given filters.
+  AND: [RouteSubscriptionWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [RouteSubscriptionWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [RouteSubscriptionWhereInput!]
+
+  # The subscription event gets dispatched when it's listed in mutation_in
+  mutation_in: [MutationType!]
+
+  # The subscription event gets only dispatched when one of the updated fields names is included in this list
+  updatedFields_contains: String
+
+  # The subscription event gets only dispatched when all of the field names included in this list have been updated
+  updatedFields_contains_every: [String!]
+
+  # The subscription event gets only dispatched when some of the field names included in this list have been updated
+  updatedFields_contains_some: [String!]
+  node: RouteWhereInput
+}
+
+input RouteUpdateInput {
+  m1ID: String
+  points: PointUpdateManyWithoutPositionInput
+  stops: StopUpdateManyWithoutRouteInput
+  buses: ArrivingToUpdateManyInput
+}
+
+input RouteUpdateOneWithoutPointsInput {
+  create: RouteCreateWithoutPointsInput
+  connect: RouteWhereUniqueInput
+  delete: Boolean
+  update: RouteUpdateWithoutPointsDataInput
+  upsert: RouteUpsertWithoutPointsInput
+}
+
+input RouteUpdateOneWithoutStopsInput {
+  create: RouteCreateWithoutStopsInput
+  connect: RouteWhereUniqueInput
+  delete: Boolean
+  update: RouteUpdateWithoutStopsDataInput
+  upsert: RouteUpsertWithoutStopsInput
+}
+
+input RouteUpdateWithoutPointsDataInput {
+  m1ID: String
+  stops: StopUpdateManyWithoutRouteInput
+  buses: ArrivingToUpdateManyInput
+}
+
+input RouteUpdateWithoutStopsDataInput {
+  m1ID: String
+  points: PointUpdateManyWithoutPositionInput
+  buses: ArrivingToUpdateManyInput
+}
+
+input RouteUpsertWithoutPointsInput {
+  update: RouteUpdateWithoutPointsDataInput!
+  create: RouteCreateWithoutPointsInput!
+}
+
+input RouteUpsertWithoutStopsInput {
+  update: RouteUpdateWithoutStopsDataInput!
+  create: RouteCreateWithoutStopsInput!
+}
+
+input RouteWhereInput {
+  # Logical AND on all given filters.
+  AND: [RouteWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [RouteWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [RouteWhereInput!]
+  m1ID: String
+
+  # All values that are not equal to given value.
+  m1ID_not: String
+
+  # All values that are contained in given list.
+  m1ID_in: [String!]
+
+  # All values that are not contained in given list.
+  m1ID_not_in: [String!]
+
+  # All values less than the given value.
+  m1ID_lt: String
+
+  # All values less than or equal the given value.
+  m1ID_lte: String
+
+  # All values greater than the given value.
+  m1ID_gt: String
+
+  # All values greater than or equal the given value.
+  m1ID_gte: String
+
+  # All values containing the given string.
+  m1ID_contains: String
+
+  # All values not containing the given string.
+  m1ID_not_contains: String
+
+  # All values starting with the given string.
+  m1ID_starts_with: String
+
+  # All values not starting with the given string.
+  m1ID_not_starts_with: String
+
+  # All values ending with the given string.
+  m1ID_ends_with: String
+
+  # All values not ending with the given string.
+  m1ID_not_ends_with: String
+  points_every: PointWhereInput
+  points_some: PointWhereInput
+  points_none: PointWhereInput
+  stops_every: StopWhereInput
+  stops_some: StopWhereInput
+  stops_none: StopWhereInput
+  buses_every: ArrivingToWhereInput
+  buses_some: ArrivingToWhereInput
+  buses_none: ArrivingToWhereInput
+}
+
+input RouteWhereUniqueInput {
+  id: UUID
+  m1ID: String
+}
+
+type Stop {
+  id: UUID!
+  position(where: LocationWhereInput): Location!
+  m1ID: String!
+  onComing(where: ArrivingToWhereInput, orderBy: ArrivingToOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ArrivingTo!]
+  route(where: RouteWhereInput): Route!
+  displayName: String
+}
+
+# A connection to a list of items.
+type StopConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [StopEdge]!
+  aggregate: AggregateStop!
+}
+
+input StopCreateInput {
+  m1ID: String!
+  displayName: String
+  position: LocationCreateOneInput!
+  onComing: ArrivingToCreateManyWithoutStopInput
+  route: RouteCreateOneWithoutStopsInput!
+}
+
+input StopCreateManyWithoutRouteInput {
+  create: [StopCreateWithoutRouteInput!]
+  connect: [StopWhereUniqueInput!]
+}
+
+input StopCreateOneWithoutOnComingInput {
+  create: StopCreateWithoutOnComingInput
+  connect: StopWhereUniqueInput
+}
+
+input StopCreateWithoutOnComingInput {
+  m1ID: String!
+  displayName: String
+  position: LocationCreateOneInput!
+  route: RouteCreateOneWithoutStopsInput!
+}
+
+input StopCreateWithoutRouteInput {
+  m1ID: String!
+  displayName: String
+  position: LocationCreateOneInput!
+  onComing: ArrivingToCreateManyWithoutStopInput
+}
+
+# An edge in a connection.
+type StopEdge {
+  # The item at the end of the edge.
+  node: Stop!
+
+  # A cursor for use in pagination.
+  cursor: String!
+}
+
+enum StopOrderByInput {
+  id_ASC
+  id_DESC
+  m1ID_ASC
+  m1ID_DESC
+  displayName_ASC
+  displayName_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type StopPreviousValues {
+  id: UUID!
+  m1ID: String!
+  displayName: String
+}
+
+type StopSubscriptionPayload {
+  mutation: MutationType!
+  node: Stop
+  updatedFields: [String!]
+  previousValues: StopPreviousValues
+}
+
+input StopSubscriptionWhereInput {
+  # Logical AND on all given filters.
+  AND: [StopSubscriptionWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [StopSubscriptionWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [StopSubscriptionWhereInput!]
+
+  # The subscription event gets dispatched when it's listed in mutation_in
+  mutation_in: [MutationType!]
+
+  # The subscription event gets only dispatched when one of the updated fields names is included in this list
+  updatedFields_contains: String
+
+  # The subscription event gets only dispatched when all of the field names included in this list have been updated
+  updatedFields_contains_every: [String!]
+
+  # The subscription event gets only dispatched when some of the field names included in this list have been updated
+  updatedFields_contains_some: [String!]
+  node: StopWhereInput
+}
+
+input StopUpdateInput {
+  m1ID: String
+  displayName: String
+  position: LocationUpdateOneInput
+  onComing: ArrivingToUpdateManyWithoutStopInput
+  route: RouteUpdateOneWithoutStopsInput
+}
+
+input StopUpdateManyWithoutRouteInput {
+  create: [StopCreateWithoutRouteInput!]
+  connect: [StopWhereUniqueInput!]
+  disconnect: [StopWhereUniqueInput!]
+  delete: [StopWhereUniqueInput!]
+  update: [StopUpdateWithWhereUniqueWithoutRouteInput!]
+  upsert: [StopUpsertWithWhereUniqueWithoutRouteInput!]
+}
+
+input StopUpdateOneWithoutOnComingInput {
+  create: StopCreateWithoutOnComingInput
+  connect: StopWhereUniqueInput
+  delete: Boolean
+  update: StopUpdateWithoutOnComingDataInput
+  upsert: StopUpsertWithoutOnComingInput
+}
+
+input StopUpdateWithoutOnComingDataInput {
+  m1ID: String
+  displayName: String
+  position: LocationUpdateOneInput
+  route: RouteUpdateOneWithoutStopsInput
+}
+
+input StopUpdateWithoutRouteDataInput {
+  m1ID: String
+  displayName: String
+  position: LocationUpdateOneInput
+  onComing: ArrivingToUpdateManyWithoutStopInput
+}
+
+input StopUpdateWithWhereUniqueWithoutRouteInput {
+  where: StopWhereUniqueInput!
+  data: StopUpdateWithoutRouteDataInput!
+}
+
+input StopUpsertWithoutOnComingInput {
+  update: StopUpdateWithoutOnComingDataInput!
+  create: StopCreateWithoutOnComingInput!
+}
+
+input StopUpsertWithWhereUniqueWithoutRouteInput {
+  where: StopWhereUniqueInput!
+  update: StopUpdateWithoutRouteDataInput!
+  create: StopCreateWithoutRouteInput!
+}
+
+input StopWhereInput {
+  # Logical AND on all given filters.
+  AND: [StopWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [StopWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [StopWhereInput!]
+  m1ID: String
+
+  # All values that are not equal to given value.
+  m1ID_not: String
+
+  # All values that are contained in given list.
+  m1ID_in: [String!]
+
+  # All values that are not contained in given list.
+  m1ID_not_in: [String!]
+
+  # All values less than the given value.
+  m1ID_lt: String
+
+  # All values less than or equal the given value.
+  m1ID_lte: String
+
+  # All values greater than the given value.
+  m1ID_gt: String
+
+  # All values greater than or equal the given value.
+  m1ID_gte: String
+
+  # All values containing the given string.
+  m1ID_contains: String
+
+  # All values not containing the given string.
+  m1ID_not_contains: String
+
+  # All values starting with the given string.
+  m1ID_starts_with: String
+
+  # All values not starting with the given string.
+  m1ID_not_starts_with: String
+
+  # All values ending with the given string.
+  m1ID_ends_with: String
+
+  # All values not ending with the given string.
+  m1ID_not_ends_with: String
+  displayName: String
+
+  # All values that are not equal to given value.
+  displayName_not: String
+
+  # All values that are contained in given list.
+  displayName_in: [String!]
+
+  # All values that are not contained in given list.
+  displayName_not_in: [String!]
+
+  # All values less than the given value.
+  displayName_lt: String
+
+  # All values less than or equal the given value.
+  displayName_lte: String
+
+  # All values greater than the given value.
+  displayName_gt: String
+
+  # All values greater than or equal the given value.
+  displayName_gte: String
+
+  # All values containing the given string.
+  displayName_contains: String
+
+  # All values not containing the given string.
+  displayName_not_contains: String
+
+  # All values starting with the given string.
+  displayName_starts_with: String
+
+  # All values not starting with the given string.
+  displayName_not_starts_with: String
+
+  # All values ending with the given string.
+  displayName_ends_with: String
+
+  # All values not ending with the given string.
+  displayName_not_ends_with: String
+  position: LocationWhereInput
+  onComing_every: ArrivingToWhereInput
+  onComing_some: ArrivingToWhereInput
+  onComing_none: ArrivingToWhereInput
+  route: RouteWhereInput
+}
+
+input StopWhereUniqueInput {
+  id: UUID
+  m1ID: String
+}
+
+type Subscription {
+  point(where: PointSubscriptionWhereInput): PointSubscriptionPayload
+  route(where: RouteSubscriptionWhereInput): RouteSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+  busLocation(where: BusLocationSubscriptionWhereInput): BusLocationSubscriptionPayload
+  bus(where: BusSubscriptionWhereInput): BusSubscriptionPayload
+  asignedRoute(where: AsignedRouteSubscriptionWhereInput): AsignedRouteSubscriptionPayload
+  plannedExit(where: PlannedExitSubscriptionWhereInput): PlannedExitSubscriptionPayload
+  stop(where: StopSubscriptionWhereInput): StopSubscriptionPayload
+  location(where: LocationSubscriptionWhereInput): LocationSubscriptionPayload
+  arrivingTo(where: ArrivingToSubscriptionWhereInput): ArrivingToSubscriptionPayload
+}
+
+type User {
+  id: UUID!
+  position(where: LocationWhereInput): Location!
+  onBus(where: BusWhereInput): Bus
+}
+
+# A connection to a list of items.
+type UserConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  position: LocationCreateOneInput!
+  onBus: BusCreateOneWithoutPassangersInput
+}
+
+input UserCreateManyWithoutOnBusInput {
+  create: [UserCreateWithoutOnBusInput!]
+  connect: [UserWhereUniqueInput!]
+}
+
+input UserCreateWithoutOnBusInput {
+  position: LocationCreateOneInput!
+}
+
+# An edge in a connection.
+type UserEdge {
+  # The item at the end of the edge.
+  node: User!
+
+  # A cursor for use in pagination.
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type UserPreviousValues {
+  id: UUID!
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  # Logical AND on all given filters.
+  AND: [UserSubscriptionWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [UserSubscriptionWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [UserSubscriptionWhereInput!]
+
+  # The subscription event gets dispatched when it's listed in mutation_in
+  mutation_in: [MutationType!]
+
+  # The subscription event gets only dispatched when one of the updated fields names is included in this list
+  updatedFields_contains: String
+
+  # The subscription event gets only dispatched when all of the field names included in this list have been updated
+  updatedFields_contains_every: [String!]
+
+  # The subscription event gets only dispatched when some of the field names included in this list have been updated
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+}
+
+input UserUpdateInput {
+  position: LocationUpdateOneInput
+  onBus: BusUpdateOneWithoutPassangersInput
+}
+
+input UserUpdateManyWithoutOnBusInput {
+  create: [UserCreateWithoutOnBusInput!]
+  connect: [UserWhereUniqueInput!]
+  disconnect: [UserWhereUniqueInput!]
+  delete: [UserWhereUniqueInput!]
+  update: [UserUpdateWithWhereUniqueWithoutOnBusInput!]
+  upsert: [UserUpsertWithWhereUniqueWithoutOnBusInput!]
+}
+
+input UserUpdateWithoutOnBusDataInput {
+  position: LocationUpdateOneInput
+}
+
+input UserUpdateWithWhereUniqueWithoutOnBusInput {
+  where: UserWhereUniqueInput!
+  data: UserUpdateWithoutOnBusDataInput!
+}
+
+input UserUpsertWithWhereUniqueWithoutOnBusInput {
+  where: UserWhereUniqueInput!
+  update: UserUpdateWithoutOnBusDataInput!
+  create: UserCreateWithoutOnBusInput!
+}
+
+input UserWhereInput {
+  # Logical AND on all given filters.
+  AND: [UserWhereInput!]
+
+  # Logical OR on all given filters.
+  OR: [UserWhereInput!]
+
+  # Logical NOT on all given filters combined by AND.
+  NOT: [UserWhereInput!]
+  position: LocationWhereInput
+  onBus: BusWhereInput
+}
+
+input UserWhereUniqueInput {
+  id: UUID
+}
+
+# A type 4 UUID according to IETF RFC 4122.
+scalar UUID
+

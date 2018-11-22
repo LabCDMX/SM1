@@ -1,0 +1,80 @@
+enum BusType {
+  NORMAL
+  EXPRESS
+  WOMAN_ONLY
+  BIKE_ENABLED
+}
+
+type Point {
+  id: UUID! @unique
+  position: Route! @relation(name:"RouteGeometry")
+}
+
+type Route {
+  id: UUID! @unique
+  m1ID: String! @unique
+  points: [Point!]! @relation(name:"RouteGeometry" onDelete: CASCADE)
+  stops: [Stop!]! @relation(name: "StopsOnRoute" onDelete: SET_NULL)
+  buses: [ArrivingTo!]! @relation(name: "BusOnRoute" onDelete: SET_NULL)
+}
+
+type User {
+  id: UUID! @unique
+  position: Location!
+  onBus: Bus @relation(name: "Passangers")
+}
+
+type BusLocation {
+  id: UUID! @unique
+  position: Location!
+  owner: Bus @relation(name:"BusHistory")
+  timestamp: DateTime!
+}
+
+type Bus {
+  position: Location!
+  id: UUID! @unique
+  status: String
+  speed: Float
+  heading: Float
+  m1ID: String! @unique
+  passangers: [User!]! @relation(name: "Passangers" onDelete: SET_NULL)
+  arrivingTo: [ArrivingTo!]! @relation(name: "ArrivingBus" onDelete: CASCADE)
+  locations: [BusLocation!]! @relation(name:"BusHistory" onDelete: CASCADE)
+  busType: String
+  maxCapacity: Float
+  direction: String
+}
+
+type AsignedRoute {
+  m1ID: String! @unique
+  displayName: String
+  buses: [String!]!
+}
+
+type ArrivingTo {
+  id: UUID! @unique
+  stop: Stop! @relation(name: "ArrivingTo" onDelete: SET_NULL)
+  time: DateTime!
+  bus: Bus! @relation(name: "ArrivingBus" onDelete: SET_NULL)
+}
+
+type PlannedExit {
+  id: UUID! @unique
+  time: DateTime!
+  operator: UUID!
+}
+
+type Stop {
+  id: UUID! @unique
+  position: Location!
+  m1ID: String! @unique
+  onComing: [ArrivingTo!]! @relation(name: "ArrivingTo"  onDelete: CASCADE)
+  route: Route! @relation(name: "StopsOnRoute"  onDelete: SET_NULL)
+  displayName: String
+}
+
+type Location {
+  latitude: Float!
+  longitude: Float!
+}

@@ -1,0 +1,160 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2017-11-21T16:27:24Z",
+    "title": "wawa"
+  },
+  "host": "wawa.datank.ai",
+  "basePath": "/prod",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/nrt/bus-position": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "BusLastStateReq",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BusLastStateReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "x-api-key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Empty": {
+      "type": "object",
+      "title": "Empty Schema"
+    },
+    "BusLastStateReq": {
+      "type": "object",
+      "required": [
+        "data"
+      ],
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "VehicleID": {
+                "type": "integer"
+              },
+              "TripEventID": {
+                "type": "integer"
+              },
+              "Distance": {
+                "type": "number"
+              },
+              "GPSDateTime": {
+                "type": "string"
+              },
+              "Heading": {
+                "type": "integer"
+              },
+              "Speed": {
+                "type": "integer"
+              },
+              "IsGPSValid": {
+                "type": "boolean"
+              },
+              "Latitude": {
+                "type": "number"
+              },
+              "Longitude": {
+                "type": "number"
+              },
+              "TimeSpan": {
+                "type": "integer"
+              },
+              "VehicleState": {
+                "type": "string"
+              },
+              "DeviceType": {
+                "type": "string"
+              },
+              "LastConnectionDate": {
+                "type": "string"
+              },
+              "Odometer": {
+                "type": "number"
+              },
+              "MotorHour": {
+                "type": "number"
+              },
+              "EmployeeID": {
+                "type": "integer"
+              },
+              "VehicleAvailabilityStateID": {
+                "type": "integer"
+              },
+              "VehicleAvailabilityStateName": {
+                "type": "string"
+              },
+              "VehicleCustomStateID": {
+                "type": "integer"
+              },
+              "VehicleCustomStateName": {
+                "type": "string"
+              },
+              "VehicleName": {
+                "type": "string"
+              },
+              "ClosestLocation": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ClosestLocation",
+              "Distance",
+              "EmployeeID",
+              "GPSDateTime",
+              "Heading",
+              "IsGPSValid",
+              "LastConnectionDate",
+              "Latitude",
+              "Longitude",
+              "MotorHour",
+              "Odometer",
+              "Speed",
+              "TripEventID",
+              "VehicleID",
+              "VehicleState"
+            ]
+          }
+        }
+      },
+      "title": "BusLastStateReq"
+    }
+  }
+}

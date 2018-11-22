@@ -1,0 +1,38 @@
+mutation {
+  bus1: createBus(
+    data: { position: { create: { latitude: 1, longitude: 1 } }, m1ID: "x1" }
+  ) {
+    id
+    position {
+      longitude
+      latitude
+    }
+  }
+    bus2: createBus(
+    data: { position: { create: { latitude: 2, longitude: 2 } }, m1ID: "x2" }
+  ) {
+    id
+    position {
+      longitude
+      latitude
+    }
+  }
+    bus3: createBus(
+    data: { position: { create: { latitude: 3, longitude: 3 } }, m1ID: "x3" }
+  ) {
+    id
+    position {
+      longitude
+      latitude
+    }
+  }
+    bus4: createBus(
+    data: { position: { create: { latitude: 4, longitude: 4 } }, m1ID: "x4" }
+  ) {
+    id
+    position {
+      longitude
+      latitude
+    }
+  }
+}
