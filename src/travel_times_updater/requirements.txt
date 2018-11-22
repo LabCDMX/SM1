@@ -1,0 +1,10 @@
+flask
+flask_restplus
+sklearn
+pandas
+s3fs
+pyproj
+shapely
+joblib
+gunicorn
+smart_open
