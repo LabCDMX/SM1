@@ -9,7 +9,7 @@ It was made serverless by using AWS services:
 
 ### Configuration
 
-The detailed architecture is shown in [docs/architecture.md](../docs/architecture.md), and from there, we will only consider the reception of GPS information from ASTUS. 
+The detailed architecture is shown in [docs/architecture.md](../../docs/architecture.md), and from there, we will only consider the reception of GPS information from ASTUS. 
 For that purpuse, we will expose a REST endpoint via Api Gateway. Such endpoint will be backed by a Kinesis Stream and a Firehose Delivery Stream attached to it so the data is sent to an S3 bucket.
 
 The process should be something like the followint:
