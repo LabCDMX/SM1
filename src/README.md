@@ -10,4 +10,5 @@ Esta carpeta contiene el código para todas las partes de la arquitectura de la 
 * [`user-app`](user-app): Código de aplicación de usuario
 * [`wawa-lambda`](wawa-lambda): AWS Lambda para ingestar los datos de Kinesis a Prisma
 * [`wawa-lambda-cl-hist`](wawa-lambda-cl-hist`): AWS Lambda para ingestar los datos históricos a Prisma
+* [`model-notebooks`](model-notebooks`): Incluye el código de los modelos utilizados, así como los datos necesarios para entrenarlos
 
