@@ -6,7 +6,7 @@ La solución utiliza dos modelos de machine learning para generar las prediccion
 
 El modelo generativo es un modelo jerárquico bayesiano de la rapidez (magnitud de la velocidad) con la que los autobuses se mueven a lo largo de la ruta. Utiliza promedios calculados históricamente bajo ciertas combinaciones de factores para estimar una distribución de probabilidad para la rapidez en el minuto actual. Los factores considerados para calcular los promedios son: día de la semana, hora del día, tramo de la ruta (entre cada par de paradas), y presencia de lluvia.
 
-El modelo es lineal, con una verosimilitud Gamma para la rapidez actual, función liga identidad, y distribuciones a priori Gamma débilmente informativas para todos los parámetros, es decir:
+El modelo es lineal, con una verosimilitud Gamma para la rapidez actual, función liga identidad, y distribuciones a priori Cauchy débilmente informativas para todos los parámetros, es decir:
 
 ![](images/generative_model.png)
 
